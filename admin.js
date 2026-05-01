@@ -2,8 +2,7 @@ const API_BASE = "https://dmg.alrijadbotpanel.workers.dev";
 const adminApp = document.querySelector("#admin-app");
 const loginForm = document.querySelector("#login-form");
 const loginCard = document.querySelector("#login-card");
-const adminSidebar = document.querySelector("#admin-sidebar");
-const adminContent = document.querySelector("#admin-content");
+const adminLayout = document.querySelector("#admin-layout");
 const logoutButton = document.querySelector("#logout-button");
 let adminPassword = "";
 
@@ -15,8 +14,7 @@ function unlockPanel(password) {
   adminPassword = password;
   adminApp.classList.remove("locked");
   loginCard.hidden = true;
-  adminSidebar.hidden = false;
-  adminContent.hidden = false;
+  adminLayout.hidden = false;
   setStatus("#login-status", "Odblokowany", "ok");
 }
 
@@ -24,8 +22,7 @@ function lockPanel() {
   adminPassword = "";
   adminApp.classList.add("locked");
   loginCard.hidden = false;
-  adminSidebar.hidden = true;
-  adminContent.hidden = true;
+  adminLayout.hidden = true;
   document.querySelector("#adminPassword").value = "";
   setStatus("#login-status", "Zablokowany");
 }

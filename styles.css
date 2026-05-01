@@ -341,10 +341,14 @@ input[type="color"] {
 }
 
 .admin-shell {
+  display: block;
+  padding: 42px 0 80px;
+}
+
+.admin-layout {
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
   gap: 20px;
-  padding: 42px 0 80px;
 }
 
 .admin-sidebar,
@@ -369,22 +373,10 @@ input[type="color"] {
   box-shadow: var(--shadow);
 }
 
-.admin-shell.locked {
-  grid-template-columns: 1fr;
-}
-
-.admin-shell.locked .admin-sidebar,
-.admin-shell.locked .admin-content {
-  display: none;
-}
-
-.admin-shell:not(.locked) .login-card {
-  display: none;
-}
-
+.login-card h1,
 .admin-sidebar h1 {
   margin-bottom: 22px;
-  font-size: 2.4rem;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
   line-height: 1;
 }
 
@@ -426,7 +418,7 @@ code {
 
 @media (max-width: 900px) {
   .hero,
-  .admin-shell {
+  .admin-layout {
     grid-template-columns: 1fr;
   }
 

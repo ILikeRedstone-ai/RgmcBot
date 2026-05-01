@@ -34,108 +34,110 @@
         </form>
       </section>
 
-      <section class="admin-sidebar" id="admin-sidebar" hidden>
-        <p class="eyebrow">Panel admina</p>
-        <h1>Kontrola Discorda</h1>
-        <div class="tabs" role="tablist" aria-label="Sekcje panelu">
-          <button class="tab active" type="button" data-panel="announcements">Ogłoszenia</button>
-          <button class="tab" type="button" data-panel="deputies">Zastępcy</button>
-          <button class="tab" type="button" data-panel="settings">Ustawienia</button>
-        </div>
-        <button class="button ghost logout-button" type="button" id="logout-button">Zablokuj panel</button>
-      </section>
+      <div class="admin-layout" id="admin-layout" hidden>
+        <section class="admin-sidebar" id="admin-sidebar">
+          <p class="eyebrow">Panel admina</p>
+          <h1>Kontrola Discorda</h1>
+          <div class="tabs" role="tablist" aria-label="Sekcje panelu">
+            <button class="tab active" type="button" data-panel="announcements">Ogłoszenia</button>
+            <button class="tab" type="button" data-panel="deputies">Zastępcy</button>
+            <button class="tab" type="button" data-panel="settings">Ustawienia</button>
+          </div>
+          <button class="button ghost logout-button" type="button" id="logout-button">Zablokuj panel</button>
+        </section>
 
-      <section class="admin-content" id="admin-content" hidden>
-        <div class="panel active" id="announcements">
-          <div class="section-head">
-            <p class="eyebrow">Webhook</p>
-            <h2>Wyślij ogłoszenie</h2>
+        <section class="admin-content" id="admin-content">
+          <div class="panel active" id="announcements">
+            <div class="section-head">
+              <p class="eyebrow">Webhook</p>
+              <h2>Wyślij ogłoszenie</h2>
+            </div>
+            <form id="announcement-form">
+              <div class="grid two">
+                <label>
+                  Tytuł embeda
+                  <input id="announcementTitle" maxlength="256" placeholder="np. Nowe zasady" />
+                </label>
+                <label>
+                  Kolor
+                  <input id="announcementColor" type="color" value="#d6b15e" />
+                </label>
+              </div>
+              <label>
+                Treść
+                <textarea id="announcementContent" maxlength="2000" rows="5" placeholder="Treść nad embedem"></textarea>
+              </label>
+              <label>
+                Opis embeda
+                <textarea id="announcementDescription" maxlength="4096" rows="6"></textarea>
+              </label>
+              <div class="grid two">
+                <label>
+                  Obraz URL
+                  <input id="announcementImage" type="url" placeholder="https://..." />
+                </label>
+              </div>
+              <div class="actions">
+                <span class="status-pill" id="announcement-status" aria-live="polite">Gotowe</span>
+                <button class="button primary" type="submit">Wyślij</button>
+              </div>
+            </form>
           </div>
-          <form id="announcement-form">
-            <div class="grid two">
-              <label>
-                Tytuł embeda
-                <input id="announcementTitle" maxlength="256" placeholder="np. Nowe zasady" />
-              </label>
-              <label>
-                Kolor
-                <input id="announcementColor" type="color" value="#d6b15e" />
-              </label>
-            </div>
-            <label>
-              Treść
-              <textarea id="announcementContent" maxlength="2000" rows="5" placeholder="Treść nad embedem"></textarea>
-            </label>
-            <label>
-              Opis embeda
-              <textarea id="announcementDescription" maxlength="4096" rows="6"></textarea>
-            </label>
-            <div class="grid two">
-              <label>
-                Obraz URL
-                <input id="announcementImage" type="url" placeholder="https://..." />
-              </label>
-            </div>
-            <div class="actions">
-              <span class="status-pill" id="announcement-status" aria-live="polite">Gotowe</span>
-              <button class="button primary" type="submit">Wyślij</button>
-            </div>
-          </form>
-        </div>
 
-        <div class="panel" id="deputies">
-          <div class="section-head">
-            <p class="eyebrow">Role Discord</p>
-            <h2>Awansuj lub zmień rangę zastępcy</h2>
-            <p>Wpisz ID użytkownika Discord. Bot musi mieć uprawnienie Manage Roles, a jego rola musi być wyżej niż role zastępców.</p>
+          <div class="panel" id="deputies">
+            <div class="section-head">
+              <p class="eyebrow">Role Discord</p>
+              <h2>Awansuj lub zmień rangę zastępcy</h2>
+              <p>Wpisz ID użytkownika Discord. Bot musi mieć uprawnienie Manage Roles, a jego rola musi być wyżej niż role zastępców.</p>
+            </div>
+            <form id="deputy-form">
+              <div class="grid two">
+                <label>
+                  Discord user ID
+                  <input id="deputyUserId" required inputmode="numeric" placeholder="np. 123456789012345678" />
+                </label>
+                <label>
+                  Ranga
+                  <select id="deputyRank" required>
+                    <option value="jr">jr-zastępca</option>
+                    <option value="regular">zastępca</option>
+                    <option value="senior">senior-zastępca</option>
+                    <option value="remove">usuń role zastępcy</option>
+                  </select>
+                </label>
+              </div>
+              <div class="grid two">
+                <label>
+                  Nick / notatka
+                  <input id="deputyNote" maxlength="120" placeholder="np. nick gracza" />
+                </label>
+              </div>
+              <div class="actions">
+                <span class="status-pill" id="deputy-status" aria-live="polite">Gotowe</span>
+                <button class="button primary" type="submit">Zapisz rangę</button>
+              </div>
+            </form>
           </div>
-          <form id="deputy-form">
-            <div class="grid two">
-              <label>
-                Discord user ID
-                <input id="deputyUserId" required inputmode="numeric" placeholder="np. 123456789012345678" />
-              </label>
-              <label>
-                Ranga
-                <select id="deputyRank" required>
-                  <option value="jr">jr-zastępca</option>
-                  <option value="regular">zastępca</option>
-                  <option value="senior">senior-zastępca</option>
-                  <option value="remove">usuń role zastępcy</option>
-                </select>
-              </label>
-            </div>
-            <div class="grid two">
-              <label>
-                Nick / notatka
-                <input id="deputyNote" maxlength="120" placeholder="np. nick gracza" />
-              </label>
-            </div>
-            <div class="actions">
-              <span class="status-pill" id="deputy-status" aria-live="polite">Gotowe</span>
-              <button class="button primary" type="submit">Zapisz rangę</button>
-            </div>
-          </form>
-        </div>
 
-        <div class="panel" id="settings">
-          <div class="section-head">
-            <p class="eyebrow">Cloudflare</p>
-            <h2>Zmienne potrzebne do działania</h2>
+          <div class="panel" id="settings">
+            <div class="section-head">
+              <p class="eyebrow">Cloudflare</p>
+              <h2>Zmienne potrzebne do działania</h2>
+            </div>
+            <div class="settings-list">
+              <code>PASSWORD_HASH</code>
+              <code>ALLOWED_ORIGIN</code>
+              <code>DISCORD_WEBHOOK_URL</code>
+              <code>RECRUITMENT_WEBHOOK_URL</code>
+              <code>DISCORD_BOT_TOKEN</code>
+              <code>GUILD_ID</code>
+              <code>ROLE_JR_DEPUTY_ID</code>
+              <code>ROLE_DEPUTY_ID</code>
+              <code>ROLE_SENIOR_DEPUTY_ID</code>
+            </div>
           </div>
-          <div class="settings-list">
-            <code>PASSWORD_HASH</code>
-            <code>ALLOWED_ORIGIN</code>
-            <code>DISCORD_WEBHOOK_URL</code>
-            <code>RECRUITMENT_WEBHOOK_URL</code>
-            <code>DISCORD_BOT_TOKEN</code>
-            <code>GUILD_ID</code>
-            <code>ROLE_JR_DEPUTY_ID</code>
-            <code>ROLE_DEPUTY_ID</code>
-            <code>ROLE_SENIOR_DEPUTY_ID</code>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
 
     <script src="admin.js"></script>
