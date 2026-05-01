@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Discord Message Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="composer" aria-labelledby="page-title">
+        <div class="topbar">
+          <div>
+            <p class="eyebrow">Discord webhook</p>
+            <h1 id="page-title">Generator wiadomości</h1>
+          </div>
+          <div class="status-pill" id="status-pill" aria-live="polite">Gotowy</div>
+        </div>
+
+        <form id="message-form" autocomplete="off">
+          <div class="grid two">
+            <label>
+              Nazwa nadawcy
+              <input id="username" name="username" maxlength="80" placeholder="np. Bot ogłoszeń" />
+            </label>
+
+            <label>
+              Avatar URL
+              <input id="avatarUrl" name="avatarUrl" type="url" placeholder="https://..." />
+            </label>
+          </div>
+
+          <label>
+            Treść wiadomości
+            <textarea id="content" name="content" maxlength="2000" rows="6" placeholder="Wpisz wiadomość..."></textarea>
+          </label>
+
+          <div class="embed-panel">
+            <div class="panel-title">
+              <h2>Embed</h2>
+              <label class="switch">
+                <input id="embedEnabled" type="checkbox" checked />
+                <span></span>
+              </label>
+            </div>
+
+            <div class="embed-fields" id="embed-fields">
+              <div class="grid two">
+                <label>
+                  Tytuł
+                  <input id="embedTitle" maxlength="256" placeholder="np. Aktualizacja" />
+                </label>
+
+                <label>
+                  Kolor
+                  <input id="embedColor" type="color" value="#5865f2" />
+                </label>
+              </div>
+
+              <label>
+                Opis
+                <textarea id="embedDescription" maxlength="4096" rows="5" placeholder="Opis embeda..."></textarea>
+              </label>
+
+              <div class="grid two">
+                <label>
+                  Obraz URL
+                  <input id="embedImage" type="url" placeholder="https://..." />
+                </label>
+
+                <label>
+                  Stopka
+                  <input id="embedFooter" maxlength="2048" placeholder="Krótka stopka" />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <label>
+            Hasło
+            <input id="password" name="password" type="password" required placeholder="Hasło do wysyłki" />
+          </label>
+
+          <div class="actions">
+            <button class="ghost" type="button" id="copy-json" title="Kopiuj JSON">
+              <span aria-hidden="true">⧉</span>
+              JSON
+            </button>
+            <button class="primary" type="submit" title="Wyślij na Discorda">
+              <span aria-hidden="true">↗</span>
+              Wyślij
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="preview" aria-labelledby="preview-title">
+        <div class="preview-head">
+          <h2 id="preview-title">Podgląd</h2>
+          <span># ogłoszenia</span>
+        </div>
+
+        <article class="discord-message">
+          <div class="avatar" id="preview-avatar">D</div>
+          <div class="message-body">
+            <div class="message-meta">
+              <strong id="preview-username">Bot ogłoszeń</strong>
+              <span>Dzisiaj o 20:00</span>
+            </div>
+            <p id="preview-content">Wpisz wiadomość, a podgląd pojawi się tutaj.</p>
+            <div class="discord-embed" id="preview-embed">
+              <div class="embed-color" id="preview-embed-color"></div>
+              <div class="embed-content">
+                <h3 id="preview-embed-title">Aktualizacja</h3>
+                <p id="preview-embed-description">Opis embeda...</p>
+                <img id="preview-embed-image" alt="" hidden />
+                <small id="preview-embed-footer">Krótka stopka</small>
+              </div>
+            </div>
+          </div>
+        </article>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
