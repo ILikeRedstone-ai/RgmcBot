@@ -33,6 +33,10 @@ body {
     var(--bg);
 }
 
+[hidden] {
+  display: none !important;
+}
+
 button,
 input,
 select,
@@ -344,8 +348,38 @@ input[type="color"] {
 }
 
 .admin-sidebar,
-.admin-content {
+.admin-content,
+.login-card {
   padding: 20px;
+}
+
+.logout-button {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.login-card {
+  grid-column: 1 / -1;
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  background: rgba(35, 38, 42, 0.95);
+  box-shadow: var(--shadow);
+}
+
+.admin-shell.locked {
+  grid-template-columns: 1fr;
+}
+
+.admin-shell.locked .admin-sidebar,
+.admin-shell.locked .admin-content {
+  display: none;
+}
+
+.admin-shell:not(.locked) .login-card {
+  display: none;
 }
 
 .admin-sidebar h1 {

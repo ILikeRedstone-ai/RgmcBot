@@ -34,7 +34,7 @@
         </form>
       </section>
 
-      <section class="admin-sidebar">
+      <section class="admin-sidebar" id="admin-sidebar" hidden>
         <p class="eyebrow">Panel admina</p>
         <h1>Kontrola Discorda</h1>
         <div class="tabs" role="tablist" aria-label="Sekcje panelu">
@@ -42,9 +42,10 @@
           <button class="tab" type="button" data-panel="deputies">Zastępcy</button>
           <button class="tab" type="button" data-panel="settings">Ustawienia</button>
         </div>
+        <button class="button ghost logout-button" type="button" id="logout-button">Zablokuj panel</button>
       </section>
 
-      <section class="admin-content">
+      <section class="admin-content" id="admin-content" hidden>
         <div class="panel active" id="announcements">
           <div class="section-head">
             <p class="eyebrow">Webhook</p>

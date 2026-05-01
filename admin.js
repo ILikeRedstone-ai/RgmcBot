@@ -1,4 +1,56 @@
 const API_BASE = "https://dmg.alrijadbotpanel.workers.dev";
+const adminApp = document.querySelector("#admin-app");
+const loginForm = document.querySelector("#login-form");
+const loginCard = document.querySelector("#login-card");
+const adminSidebar = document.querySelector("#admin-sidebar");
+const adminContent = document.querySelector("#admin-content");
+const logoutButton = document.querySelector("#logout-button");
+let adminPassword = "";
+
+function getPassword() {
+  return adminPassword;
+}
+
+function unlockPanel(password) {
+  adminPassword = password;
+  adminApp.classList.remove("locked");
+  loginCard.hidden = true;
+  adminSidebar.hidden = false;
+  adminContent.hidden = false;
+  setStatus("#login-status", "Odblokowany", "ok");
+}
+
+function lockPanel() {
+  adminPassword = "";
+  adminApp.classList.add("locked");
+  loginCard.hidden = false;
+  adminSidebar.hidden = true;
+  adminContent.hidden = true;
+  document.querySelector("#adminPassword").value = "";
+  setStatus("#login-status", "Zablokowany");
+}
+
+loginForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const password = document.querySelector("#adminPassword").value;
+  setStatus("#login-status", "Sprawdzam");
+
+  try {
+    const response = await fetch(`${API_BASE}/auth`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ password }),
+    });
+
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.error || "Nieprawidlowe haslo");
+    unlockPanel(password);
+  } catch (error) {
+    setStatus("#login-status", error.message, "error");
+  }
+});
+
+logoutButton.addEventListener("click", lockPanel);
 
 document.querySelectorAll(".tab").forEach((tab) => {
   tab.addEventListener("click", () => {
@@ -11,6 +63,7 @@ document.querySelectorAll(".tab").forEach((tab) => {
 
 function setStatus(id, text, type = "") {
   const statusPill = document.querySelector(id);
+  if (!statusPill) return;
   statusPill.textContent = text;
   statusPill.className = `status-pill ${type}`.trim();
 }
@@ -45,7 +98,7 @@ document.querySelector("#announcement-form").addEventListener("submit", async (e
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
-        password: document.querySelector("#announcementPassword").value,
+        password: getPassword(),
         message,
       }),
     });
@@ -67,7 +120,7 @@ document.querySelector("#deputy-form").addEventListener("submit", async (event) 
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
-        password: document.querySelector("#deputyPassword").value,
+        password: getPassword(),
         userId: document.querySelector("#deputyUserId").value.trim(),
         rank: document.querySelector("#deputyRank").value,
         note: document.querySelector("#deputyNote").value.trim(),
