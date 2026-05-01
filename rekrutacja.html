@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rekrutacja | Al-Rijad</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">Al-Rijad</a>
+      <nav aria-label="Nawigacja">
+        <a href="index.html#info">Informacje</a>
+        <a href="rekrutacja.html">Rekrutacja</a>
+        <a href="admin.html">Panel</a>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section class="form-card">
+        <div class="section-head">
+          <p class="eyebrow">Formularz</p>
+          <h1>Rekrutacja do Al-Rijad</h1>
+          <p>Wypełnij ankietę. Zgłoszenie trafi na kanał administracji na Discordzie.</p>
+        </div>
+
+        <form id="recruitment-form">
+          <div class="grid two">
+            <label>
+              Nick Minecraft
+              <input id="mcNick" required maxlength="32" placeholder="np. Steve" />
+            </label>
+            <label>
+              Discord
+              <input id="discordName" required maxlength="80" placeholder="np. nick#0000 albo @nick" />
+            </label>
+          </div>
+
+          <div class="grid two">
+            <label>
+              Wiek
+              <input id="age" required type="number" min="10" max="99" placeholder="np. 16" />
+            </label>
+            <label>
+              Strefa/czas gry
+              <input id="activity" required maxlength="120" placeholder="np. wieczorami, weekendy" />
+            </label>
+          </div>
+
+          <label>
+            Dlaczego chcesz dołączyć?
+            <textarea id="reason" required maxlength="1200" rows="5"></textarea>
+          </label>
+
+          <label>
+            Co możesz dać społeczności?
+            <textarea id="contribution" required maxlength="1200" rows="5"></textarea>
+          </label>
+
+          <label>
+            Dodatkowe informacje
+            <textarea id="extra" maxlength="1200" rows="4"></textarea>
+          </label>
+
+          <div class="actions">
+            <span class="status-pill" id="recruitment-status" aria-live="polite">Gotowe</span>
+            <button class="button primary" type="submit">Wyślij zgłoszenie</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="rekrutacja.js"></script>
+  </body>
+</html>
