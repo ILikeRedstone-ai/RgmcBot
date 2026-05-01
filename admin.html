@@ -15,7 +15,25 @@
       </nav>
     </header>
 
-    <main class="admin-shell">
+    <main class="admin-shell locked" id="admin-app">
+      <section class="login-card" id="login-card">
+        <div class="section-head">
+          <p class="eyebrow">Panel admina</p>
+          <h1>Logowanie</h1>
+          <p>Wpisz hasło panelu, żeby odblokować narzędzia administracyjne.</p>
+        </div>
+        <form id="login-form">
+          <label>
+            Hasło panelu
+            <input id="adminPassword" required type="password" autocomplete="current-password" />
+          </label>
+          <div class="actions">
+            <span class="status-pill" id="login-status" aria-live="polite">Zablokowany</span>
+            <button class="button primary" type="submit">Odblokuj panel</button>
+          </div>
+        </form>
+      </section>
+
       <section class="admin-sidebar">
         <p class="eyebrow">Panel admina</p>
         <h1>Kontrola Discorda</h1>
@@ -56,10 +74,6 @@
                 Obraz URL
                 <input id="announcementImage" type="url" placeholder="https://..." />
               </label>
-              <label>
-                Hasło panelu
-                <input id="announcementPassword" required type="password" />
-              </label>
             </div>
             <div class="actions">
               <span class="status-pill" id="announcement-status" aria-live="polite">Gotowe</span>
@@ -94,10 +108,6 @@
               <label>
                 Nick / notatka
                 <input id="deputyNote" maxlength="120" placeholder="np. nick gracza" />
-              </label>
-              <label>
-                Hasło panelu
-                <input id="deputyPassword" required type="password" />
               </label>
             </div>
             <div class="actions">
