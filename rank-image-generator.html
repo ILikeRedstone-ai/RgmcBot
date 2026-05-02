@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Generator grafik rang | Al-Rijad</title>
+    <link rel="stylesheet" href="rank-image-generator.css?v=2026-05-02-1" />
+  </head>
+  <body>
+    <header class="tool-header">
+      <a class="brand" href="admin.html">Al-Rijad</a>
+      <div>
+        <strong>Generator grafik rang</strong>
+        <span>lokalny prototyp do dopracowania kadrów</span>
+      </div>
+    </header>
+
+    <main class="generator-shell">
+      <section class="controls">
+        <form id="generator-form">
+          <section class="control-section">
+            <h2>Gracz i ranga</h2>
+            <div class="grid two">
+              <label>
+                Nick Minecraft
+                <input id="playerName" value="Steve" maxlength="32" />
+              </label>
+              <label>
+                Ranga
+                <select id="rank">
+                  <option value="jr">jr-zastępca</option>
+                  <option value="regular">zastępca</option>
+                  <option value="senior">senior-zastępca</option>
+                </select>
+              </label>
+            </div>
+            <div class="actions">
+              <button class="button ghost" type="button" id="loadSkin">Załaduj skin z nicku</button>
+              <label class="file-button">
+                Wgraj skin PNG
+                <input id="skinUpload" type="file" accept="image/png,image/jpeg" />
+              </label>
+            </div>
+          </section>
+
+          <section class="control-section">
+            <h2>Tekst</h2>
+            <label>
+              Nagłówek
+              <input id="headline" value="{nick} został/a {rank}" maxlength="80" />
+            </label>
+            <label>
+              Podpis
+              <input id="subtitle" value="Al-Rijad • system zastępców" maxlength="100" />
+            </label>
+            <div class="grid three">
+              <label>
+                X tekstu
+                <input id="textX" type="range" min="40" max="1180" value="90" />
+              </label>
+              <label>
+                Y tekstu
+                <input id="textY" type="range" min="80" max="620" value="430" />
+              </label>
+              <label>
+                Rozmiar
+                <input id="textSize" type="range" min="38" max="96" value="70" />
+              </label>
+            </div>
+          </section>
+
+          <section class="control-section">
+            <h2>Postać 3D</h2>
+            <div class="grid three">
+              <label>
+                Obrót
+                <input id="yaw" type="range" min="-180" max="180" value="-28" />
+              </label>
+              <label>
+                Pochylenie
+                <input id="pitch" type="range" min="-25" max="25" value="0" />
+              </label>
+              <label>
+                Zoom
+                <input id="zoom" type="range" min="45" max="115" value="78" />
+              </label>
+            </div>
+            <div class="grid three">
+              <label>
+                X postaci
+                <input id="playerX" type="range" min="-100" max="920" value="700" />
+              </label>
+              <label>
+                Y postaci
+                <input id="playerY" type="range" min="-120" max="340" value="20" />
+              </label>
+              <label>
+                Skala
+                <input id="playerScale" type="range" min="45" max="135" value="95" />
+              </label>
+            </div>
+            <label>
+              Jasność postaci
+              <input id="playerBrightness" type="range" min="80" max="240" value="240" />
+            </label>
+          </section>
+
+          <section class="control-section">
+            <h2>Tło</h2>
+            <div class="grid two">
+              <label>
+                Kolor 1
+                <input id="bgColorA" type="color" value="#151719" />
+              </label>
+              <label>
+                Kolor 2
+                <input id="bgColorB" type="color" value="#6f5320" />
+              </label>
+            </div>
+            <label class="file-button wide">
+              Wgraj background
+              <input id="backgroundUpload" type="file" accept="image/png,image/jpeg,image/webp" />
+            </label>
+          </section>
+
+          <section class="control-section">
+            <h2>Preset rang</h2>
+            <div class="actions">
+              <button class="button ghost" type="button" id="basePreset">Ustaw bazowy kadr</button>
+            </div>
+          </section>
+        </form>
+      </section>
+
+      <section class="stage">
+        <canvas id="posterCanvas" width="1280" height="720"></canvas>
+        <canvas id="skinCanvas" width="520" height="680" aria-hidden="true"></canvas>
+        <div class="stage-actions">
+          <span id="status" aria-live="polite">Gotowe</span>
+          <button class="button primary" type="button" id="downloadImage">Pobierz PNG</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/skinview3d@3.4.1/bundles/skinview3d.bundle.js"></script>
+    <script src="rank-image-generator.js?v=2026-05-02-4"></script>
+  </body>
+</html>

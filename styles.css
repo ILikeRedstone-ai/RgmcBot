@@ -37,6 +37,15 @@ body {
   display: none !important;
 }
 
+.deputy-image-workbench {
+  position: fixed;
+  left: -10000px;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 button,
 input,
 select,

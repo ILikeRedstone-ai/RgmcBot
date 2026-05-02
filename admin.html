@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Panel | Al-Rijad</title>
-    <link rel="stylesheet" href="styles.css?v=2026-05-02-2" />
+    <link rel="stylesheet" href="styles.css?v=2026-05-02-3" />
   </head>
   <body>
     <header class="site-header">
@@ -12,6 +12,7 @@
       <nav aria-label="Nawigacja">
         <a href="index.html">Strona</a>
         <a href="rekrutacja.html">Rekrutacja</a>
+        <a href="rank-image-generator.html">Grafiki rang</a>
       </nav>
     </header>
 
@@ -262,8 +263,8 @@
               </div>
               <div class="grid two">
                 <label>
-                  Nick / notatka
-                  <input id="deputyNote" maxlength="120" placeholder="np. nick gracza" />
+                  Nick gracza
+                  <input id="deputyPlayerNick" required maxlength="32" placeholder="np. Steve" />
                 </label>
               </div>
               <div class="actions">
@@ -292,8 +293,13 @@
           </div>
         </section>
       </div>
+      <div class="deputy-image-workbench" hidden>
+        <canvas id="deputyPosterCanvas" width="1280" height="720"></canvas>
+        <canvas id="deputySkinCanvas" width="520" height="680"></canvas>
+      </div>
     </main>
 
-    <script src="admin.js?v=2026-05-02-2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skinview3d@3.4.1/bundles/skinview3d.bundle.js"></script>
+    <script src="admin.js?v=2026-05-02-3"></script>
   </body>
 </html>
