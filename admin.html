@@ -52,36 +52,170 @@
               <p class="eyebrow">Webhook</p>
               <h2>Wyślij ogłoszenie</h2>
             </div>
-            <form id="announcement-form">
-              <div class="grid two">
+            <div class="announcement-workspace">
+              <form id="announcement-form">
+                <div class="grid two">
+                  <label>
+                    Nazwa nadawcy
+                    <input id="announcementUsername" maxlength="80" placeholder="Al-Rijad" />
+                  </label>
+                  <label>
+                    Avatar nadawcy URL
+                    <input id="announcementAvatar" type="url" placeholder="https://..." />
+                  </label>
+                </div>
                 <label>
-                  Tytuł embeda
-                  <input id="announcementTitle" maxlength="256" placeholder="np. Nowe zasady" />
+                  Treść nad embedem
+                  <textarea id="announcementContent" maxlength="2000" rows="4" placeholder="Treść nad embedem"></textarea>
                 </label>
+                <div class="grid two">
+                  <label>
+                    Tytuł embeda
+                    <input id="announcementTitle" maxlength="256" placeholder="np. Nowe zasady" />
+                  </label>
+                  <label>
+                    Link tytułu
+                    <input id="announcementUrl" type="url" placeholder="https://..." />
+                  </label>
+                </div>
                 <label>
-                  Kolor
-                  <input id="announcementColor" type="color" value="#d6b15e" />
+                  Opis embeda
+                  <textarea id="announcementDescription" maxlength="4096" rows="6"></textarea>
                 </label>
-              </div>
-              <label>
-                Treść
-                <textarea id="announcementContent" maxlength="2000" rows="5" placeholder="Treść nad embedem"></textarea>
-              </label>
-              <label>
-                Opis embeda
-                <textarea id="announcementDescription" maxlength="4096" rows="6"></textarea>
-              </label>
-              <div class="grid two">
+                <div class="grid three">
+                  <label>
+                    Kolor
+                    <input id="announcementColor" type="color" value="#d6b15e" />
+                  </label>
+                  <label>
+                    Mentiony
+                    <select id="announcementMentions">
+                      <option value="none">bez pingów</option>
+                      <option value="users">użytkownicy</option>
+                      <option value="roles">użytkownicy i role</option>
+                      <option value="everyone">wszyscy</option>
+                    </select>
+                  </label>
+                  <label>
+                    Timestamp
+                    <select id="announcementTimestamp">
+                      <option value="no">bez czasu</option>
+                      <option value="yes">dodaj czas</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="grid two">
+                  <label>
+                    Author
+                    <input id="announcementAuthor" maxlength="256" placeholder="np. Administracja" />
+                  </label>
+                  <label>
+                    Author icon URL
+                    <input id="announcementAuthorIcon" type="url" placeholder="https://..." />
+                  </label>
+                </div>
+                <div class="grid two">
+                  <label>
+                    Thumbnail URL
+                    <input id="announcementThumbnail" type="url" placeholder="https://..." />
+                  </label>
+                  <label>
+                    Obraz URL
+                    <input id="announcementImage" type="url" placeholder="https://..." />
+                  </label>
+                </div>
                 <label>
-                  Obraz URL
-                  <input id="announcementImage" type="url" placeholder="https://..." />
+                  Stopka
+                  <input id="announcementFooter" maxlength="2048" placeholder="Al-Rijad" />
                 </label>
-              </div>
-              <div class="actions">
-                <span class="status-pill" id="announcement-status" aria-live="polite">Gotowe</span>
-                <button class="button primary" type="submit">Wyślij</button>
-              </div>
-            </form>
+
+                <div class="embed-fields-editor">
+                  <h3>Pola embeda</h3>
+                  <div class="grid three">
+                    <label>
+                      Nazwa 1
+                      <input class="field-name" maxlength="256" placeholder="np. Data" />
+                    </label>
+                    <label>
+                      Wartość 1
+                      <input class="field-value" maxlength="1024" placeholder="np. Sobota" />
+                    </label>
+                    <label>
+                      Układ 1
+                      <select class="field-inline">
+                        <option value="true">w linii</option>
+                        <option value="false">pełna szerokość</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div class="grid three">
+                    <label>
+                      Nazwa 2
+                      <input class="field-name" maxlength="256" />
+                    </label>
+                    <label>
+                      Wartość 2
+                      <input class="field-value" maxlength="1024" />
+                    </label>
+                    <label>
+                      Układ 2
+                      <select class="field-inline">
+                        <option value="true">w linii</option>
+                        <option value="false">pełna szerokość</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div class="grid three">
+                    <label>
+                      Nazwa 3
+                      <input class="field-name" maxlength="256" />
+                    </label>
+                    <label>
+                      Wartość 3
+                      <input class="field-value" maxlength="1024" />
+                    </label>
+                    <label>
+                      Układ 3
+                      <select class="field-inline">
+                        <option value="true">w linii</option>
+                        <option value="false">pełna szerokość</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <span class="status-pill" id="announcement-status" aria-live="polite">Gotowe</span>
+                  <button class="button primary" type="submit">Wyślij</button>
+                </div>
+              </form>
+
+              <aside class="discord-preview" aria-label="Podgląd ogłoszenia">
+                <div class="preview-channel"># ogłoszenia</div>
+                <article class="discord-message">
+                  <div class="discord-avatar" id="preview-avatar">A</div>
+                  <div class="discord-body">
+                    <div class="discord-meta">
+                      <strong id="preview-username">Al-Rijad</strong>
+                      <span>Dzisiaj</span>
+                    </div>
+                    <p id="preview-content">Treść nad embedem pojawi się tutaj.</p>
+                    <div class="discord-embed" id="preview-embed">
+                      <div class="embed-color" id="preview-color"></div>
+                      <div class="embed-main">
+                        <div class="embed-author" id="preview-author" hidden></div>
+                        <a id="preview-title" href="#" target="_blank" rel="noreferrer">Tytuł embeda</a>
+                        <p id="preview-description">Opis embeda...</p>
+                        <div class="embed-fields-preview" id="preview-fields"></div>
+                        <img id="preview-image" alt="" hidden />
+                        <small id="preview-footer" hidden></small>
+                      </div>
+                      <img class="embed-thumbnail" id="preview-thumbnail" alt="" hidden />
+                    </div>
+                  </div>
+                </article>
+              </aside>
+            </div>
           </div>
 
           <div class="panel" id="deputies">
