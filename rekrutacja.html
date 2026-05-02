@@ -2,9 +2,9 @@
 <html lang="pl">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1\" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Rekrutacja | Al-Rijad</title>
-    <link rel="stylesheet" href="styles.css?v=2026-05-02-2" />
+    <link rel="stylesheet" href="styles.css?v=2026-05-02-3" />
   </head>
   <body>
     <header class="site-header">
@@ -20,57 +20,83 @@
       <section class="form-card">
         <div class="section-head">
           <p class="eyebrow">Formularz</p>
-          <h1>Rekrutacja do Al-Rijad</h1>
+          <h1>Rekrutacja na JrZastępcę</h1>
           <p>Wypełnij ankietę. Zgłoszenie trafi na kanał administracji na Discordzie.</p>
         </div>
 
         <form id="recruitment-form">
           <div class="grid two">
             <label>
-              Nick Minecraft
-              <input id="mcNick" required maxlength="32" placeholder="np. Steve" />
+              Nick
+              <input id="mcNick" required maxlength="32" />
             </label>
             <label>
-              Discord
-              <input id="discordName" required maxlength="80" placeholder="np. nick#0000 albo @nick" />
+              Discord (do kontaktu)
+              <input id="discordName" required maxlength="80" />
             </label>
           </div>
 
           <div class="grid two">
             <label>
-              Wiek
-              <input id="age" required type="number" min="10" max="99" placeholder="np. 16" />
+              Kiedy dołączyłem/am do Al-Rijad?
+              <input id="joinDate" required maxlength="60" />
             </label>
             <label>
-              Strefa/czas gry
-              <input id="activity" required maxlength="120" placeholder="np. wieczorami, weekendy" />
+              Czy mam multikonta?
+              <input id="multiAccounts" required maxlength="120" placeholder="np. Brak / podaj nicki" />
+            </label>
+          </div>
+
+          <div class="grid two">
+            <label>
+              Z kim mam sojusze?
+              <input id="alliances" required maxlength="200" />
+            </label>
+            <label>
+              Jakich mam wrogów?
+              <input id="enemies" required maxlength="200" />
             </label>
           </div>
 
           <label>
-            Dlaczego chcesz dołączyć?
-            <textarea id="reason" required maxlength="1200" rows="5"></textarea>
+            Dlaczego chcę zostać JrZastępcą?
+            <textarea id="reason" required maxlength="1000" rows="3"></textarea>
           </label>
 
           <label>
-            Co możesz dać społeczności?
-            <textarea id="contribution" required maxlength="1200" rows="5"></textarea>
+            Jaką wartość mogę wnieść do Al-Rijad jako JrZastępca?
+            <textarea id="contribution" required maxlength="1000" rows="3"></textarea>
+          </label>
+          
+          <label>
+            Czego dokonałem dla Al-Rijad?
+            <textarea id="achievements" required maxlength="1000" rows="3"></textarea>
           </label>
 
           <label>
-            Dodatkowe informacje
-            <textarea id="extra" maxlength="1200" rows="4"></textarea>
+            Czy byłem karany w Al-Rijad lub państwach sojuszniczych (jeśli tak, to za co)?
+            <textarea id="punishments" required maxlength="1000" rows="2"></textarea>
+          </label>
+
+          <label>
+            Czy zostałem nagrodzony orderem w Al-Rijad lub państwach sojuszniczych?
+            <textarea id="medals" required maxlength="1000" rows="2"></textarea>
+          </label>
+
+          <label>
+            Inne informacje ważne przy rekrutacji
+            <textarea id="extra" maxlength="1000" rows="2"></textarea>
           </label>
 
           <div style="margin-top: 20px; border-top: 1px solid var(--line); padding-top: 20px;">
             <label style="display: flex; gap: 10px; align-items: flex-start; cursor: pointer;">
               <input type="checkbox" id="tosAccept" required style="width: auto; margin-top: 4px;" />
-              <span style="font-size: 0.95rem;">Akceptuję regulamin rekrutacji i zasady państwa</span>
+              <span style="font-size: 0.95rem;">Potwierdzam lekturę regulaminu i akceptuję zasady państwa</span>
             </label>
             
             <details style="margin-top: 10px; background: var(--surface-2); padding: 12px; border-radius: 8px;">
               <summary style="cursor: pointer; color: var(--accent); font-weight: 500; font-size: 0.85rem;">
-                Kliknij, aby rozwinąć pełny regulamin
+                Kliknij, aby rozwinąć regulamin
               </summary>
               <div style="margin-top: 12px; font-size: 0.85rem; line-height: 1.6; color: var(--muted);">
                 <strong>ZASADY PAŃSTWA AL-RIJAD:</strong><br>
@@ -80,7 +106,7 @@
                 4. Aktywna pomoc w rozwoju infrastruktury państwowej.<br>
                 5. Zakaz używania wspomagaczy (cheatów) pod rygorem natychmiastowego wydalenia.<br><br>
                 <strong>POSTANOWIENIA TECHNICZNE:</strong><br>
-                Wyrażam zgodę na przetwarzanie i zachowywanie mojego adresu IP w formie shashowanej w celu weryfikacji autentyczności wypełnianej ankiety.
+                Wyrażam zgodę na pobranie i zapisanie mojego adresu IP w bezpiecznej, zaszyfrowanej formie w celu weryfikacji autentyczności wypełnionej ankiety (w szczególności deklaracji o braku multikont).
               </div>
             </details>
           </div>
@@ -93,6 +119,6 @@
       </section>
     </main>
 
-    <script src="rekrutacja.js?v=2026-05-02-2"></script>
+    <script src="rekrutacja.js?v=2026-05-02-3"></script>
   </body>
 </html>
