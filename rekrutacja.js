@@ -1,4 +1,4 @@
-const API_BASE = "https://dmg.alrijadbotpanel.workers.dev";
+const API_BASE = window.AL_RIJAD_API_URL || "https://dmg.alrijadbotpanel.workers.dev";
 
 const form = document.querySelector("#recruitment-form");
 const statusPill = document.querySelector("#recruitment-status");
@@ -10,6 +10,13 @@ function setStatus(text, type = "") {
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+
+  const tosAccept = document.querySelector("#tosAccept");
+  if (!tosAccept || !tosAccept.checked) {
+    setStatus("Musisz zaakceptować regulamin", "error");
+    return;
+  }
+
   setStatus("Wysyłam");
 
   const payload = {
