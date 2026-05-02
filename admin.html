@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Panel | Al-Rijad</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=2026-05-02-2" />
   </head>
   <body>
     <header class="site-header">
@@ -54,82 +54,97 @@
             </div>
             <div class="announcement-workspace">
               <form id="announcement-form">
-                <div class="grid two">
-                  <label>
-                    Nazwa nadawcy
-                    <input id="announcementUsername" maxlength="80" placeholder="Al-Rijad" />
-                  </label>
-                  <label>
-                    Avatar nadawcy URL
-                    <input id="announcementAvatar" type="url" placeholder="https://..." />
-                  </label>
-                </div>
-                <label>
-                  Treść nad embedem
-                  <textarea id="announcementContent" maxlength="2000" rows="4" placeholder="Treść nad embedem"></textarea>
-                </label>
-                <div class="grid two">
-                  <label>
-                    Tytuł embeda
-                    <input id="announcementTitle" maxlength="256" placeholder="np. Nowe zasady" />
-                  </label>
-                  <label>
-                    Link tytułu
-                    <input id="announcementUrl" type="url" placeholder="https://..." />
-                  </label>
-                </div>
-                <label>
-                  Opis embeda
-                  <textarea id="announcementDescription" maxlength="4096" rows="6"></textarea>
-                </label>
-                <div class="grid three">
-                  <label>
-                    Kolor
-                    <input id="announcementColor" type="color" value="#d6b15e" />
-                  </label>
-                  <label>
-                    Mentiony
-                    <select id="announcementMentions">
-                      <option value="none">bez pingów</option>
-                      <option value="users">użytkownicy</option>
-                      <option value="roles">użytkownicy i role</option>
-                      <option value="everyone">wszyscy</option>
-                    </select>
-                  </label>
-                  <label>
-                    Timestamp
-                    <select id="announcementTimestamp">
-                      <option value="no">bez czasu</option>
-                      <option value="yes">dodaj czas</option>
-                    </select>
-                  </label>
-                </div>
-                <div class="grid two">
-                  <label>
-                    Author
-                    <input id="announcementAuthor" maxlength="256" placeholder="np. Administracja" />
-                  </label>
-                  <label>
-                    Author icon URL
-                    <input id="announcementAuthorIcon" type="url" placeholder="https://..." />
-                  </label>
-                </div>
-                <div class="grid two">
-                  <label>
-                    Thumbnail URL
-                    <input id="announcementThumbnail" type="url" placeholder="https://..." />
-                  </label>
-                  <label>
-                    Obraz URL
-                    <input id="announcementImage" type="url" placeholder="https://..." />
-                  </label>
-                </div>
-                <label>
-                  Stopka
-                  <input id="announcementFooter" maxlength="2048" placeholder="Al-Rijad" />
-                </label>
+                <section class="form-section">
+                  <h3>Nadawca</h3>
+                  <div class="grid two">
+                    <label>
+                      Nazwa
+                      <input id="announcementUsername" maxlength="80" placeholder="Al-Rijad" />
+                    </label>
+                    <label>
+                      Avatar URL
+                      <input id="announcementAvatar" type="url" placeholder="https://..." />
+                    </label>
+                  </div>
+                </section>
 
-                <div class="embed-fields-editor">
+                <section class="form-section">
+                  <h3>Wiadomość</h3>
+                  <label>
+                    Treść nad embedem
+                    <textarea id="announcementContent" maxlength="2000" rows="4" placeholder="Treść nad embedem"></textarea>
+                  </label>
+                  <div class="grid three">
+                    <label>
+                      Kolor embeda
+                      <input id="announcementColor" type="color" value="#d6b15e" />
+                    </label>
+                    <label>
+                      Mentiony
+                      <select id="announcementMentions">
+                        <option value="none">bez pingów</option>
+                        <option value="users">użytkownicy</option>
+                        <option value="roles">użytkownicy i role</option>
+                        <option value="everyone">wszyscy</option>
+                      </select>
+                    </label>
+                    <label>
+                      Timestamp
+                      <select id="announcementTimestamp">
+                        <option value="no">bez czasu</option>
+                        <option value="yes">dodaj czas</option>
+                      </select>
+                    </label>
+                  </div>
+                </section>
+
+                <section class="form-section">
+                  <h3>Embed</h3>
+                  <div class="grid two">
+                    <label>
+                      Tytuł
+                      <input id="announcementTitle" maxlength="256" placeholder="np. Nowe zasady" />
+                    </label>
+                    <label>
+                      Link tytułu
+                      <input id="announcementUrl" type="url" placeholder="https://..." />
+                    </label>
+                  </div>
+                  <label>
+                    Opis
+                    <textarea id="announcementDescription" maxlength="4096" rows="6"></textarea>
+                  </label>
+                </section>
+
+                <section class="form-section">
+                  <h3>Media i stopka</h3>
+                  <div class="grid two">
+                    <label>
+                      Author
+                      <input id="announcementAuthor" maxlength="256" placeholder="np. Administracja" />
+                    </label>
+                    <label>
+                      Author icon URL
+                      <input id="announcementAuthorIcon" type="url" placeholder="https://..." />
+                    </label>
+                  </div>
+                  <div class="grid two">
+                    <label>
+                      Thumbnail URL
+                      <input id="announcementThumbnail" type="url" placeholder="https://..." />
+                    </label>
+                    <label>
+                      Obraz URL
+                      <input id="announcementImage" type="url" placeholder="https://..." />
+                    </label>
+                  </div>
+                  <label>
+                    Stopka
+                    <input id="announcementFooter" maxlength="2048" placeholder="Al-Rijad" />
+                  </label>
+                </section>
+
+                <section class="form-section embed-fields-editor">
                   <h3>Pola embeda</h3>
                   <div class="grid three">
                     <label>
@@ -182,7 +197,7 @@
                       </select>
                     </label>
                   </div>
-                </div>
+                </section>
 
                 <div class="actions">
                   <span class="status-pill" id="announcement-status" aria-live="polite">Gotowe</span>
@@ -191,7 +206,12 @@
               </form>
 
               <aside class="discord-preview" aria-label="Podgląd ogłoszenia">
-                <div class="preview-channel"># ogłoszenia</div>
+                <div class="preview-topbar">
+                  <div>
+                    <strong># ogłoszenia</strong>
+                    <span>Podgląd wiadomości</span>
+                  </div>
+                </div>
                 <article class="discord-message">
                   <div class="discord-avatar" id="preview-avatar">A</div>
                   <div class="discord-body">
@@ -274,6 +294,6 @@
       </div>
     </main>
 
-    <script src="admin.js"></script>
+    <script src="admin.js?v=2026-05-02-2"></script>
   </body>
 </html>
