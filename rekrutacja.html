@@ -2,9 +2,9 @@
 <html lang="pl">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1\" />
     <title>Rekrutacja | Al-Rijad</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=2026-05-02-2" />
   </head>
   <body>
     <header class="site-header">
@@ -62,7 +62,30 @@
             <textarea id="extra" maxlength="1200" rows="4"></textarea>
           </label>
 
-          <div class="actions">
+          <div style="margin-top: 20px; border-top: 1px solid var(--line); padding-top: 20px;">
+            <label style="display: flex; gap: 10px; align-items: flex-start; cursor: pointer;">
+              <input type="checkbox" id="tosAccept" required style="width: auto; margin-top: 4px;" />
+              <span style="font-size: 0.95rem;">Akceptuję regulamin rekrutacji i zasady państwa</span>
+            </label>
+            
+            <details style="margin-top: 10px; background: var(--surface-2); padding: 12px; border-radius: 8px;">
+              <summary style="cursor: pointer; color: var(--accent); font-weight: 500; font-size: 0.85rem;">
+                Kliknij, aby rozwinąć pełny regulamin
+              </summary>
+              <div style="margin-top: 12px; font-size: 0.85rem; line-height: 1.6; color: var(--muted);">
+                <strong>ZASADY PAŃSTWA AL-RIJAD:</strong><br>
+                1. Całkowity zakaz szpiegowania na rzecz innych gildii.<br>
+                2. Obowiązek przestrzegania hierarchii i poleceń wyższych rangą.<br>
+                3. Zachowanie kultury osobistej na kanałach publicznych i prywatnych.<br>
+                4. Aktywna pomoc w rozwoju infrastruktury państwowej.<br>
+                5. Zakaz używania wspomagaczy (cheatów) pod rygorem natychmiastowego wydalenia.<br><br>
+                <strong>POSTANOWIENIA TECHNICZNE:</strong><br>
+                Wyrażam zgodę na przetwarzanie i zachowywanie mojego adresu IP w formie shashowanej w celu weryfikacji autentyczności wypełnianej ankiety.
+              </div>
+            </details>
+          </div>
+
+          <div class="actions" style="margin-top: 24px;">
             <span class="status-pill" id="recruitment-status" aria-live="polite">Gotowe</span>
             <button class="button primary" type="submit">Wyślij zgłoszenie</button>
           </div>
@@ -70,6 +93,6 @@
       </section>
     </main>
 
-    <script src="rekrutacja.js"></script>
+    <script src="rekrutacja.js?v=2026-05-02-2"></script>
   </body>
 </html>
